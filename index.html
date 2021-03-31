@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza rider</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <!--  añadir una nueva moto -->
+        <input type="text" placeholder="modelo" v-model="nuevaMoto">
+        <button type="submit" @click="agregarMoto" @keyup.enter="agregarMoto">Añadir moto</button>
+
+        <section>
+
+            <!--  muestra la lista de motos -->
+            <article v-for="moto of motos" v-if="moto.estado === 'disponible'">
+                <h1>{{moto.modelo}}</h1>
+                <p>{{moto.color}}</p>
+                <p>{{moto.matricula}}</p>
+                <p>{{moto.estado}}</p>
+
+                <button>Coger Llaves</button>
+                <button>Devolver llaves</button>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h1>Motos disponibles</h1>
+                <p></p>
+            </article>
+        </section>
+
+
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
